@@ -17,8 +17,9 @@
             "group": "Getting started",
             "pages": [
               "index",
-              "quickstart",
-              "development"
+              "getting-started/what-is-prvt-market",
+              "getting-started/eligibility",
+              "getting-started/create-account"
             ]
           },
           {
