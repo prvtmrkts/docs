@@ -7,7 +7,7 @@
     "light": "#07C983",
     "dark": "#15803D"
   },
-  "favicon": "/logo/prvt_logo_dark.png",
+  "favicon": "/logo/prvt_logo.png",
   "navigation": {
     "tabs": [
       {
@@ -23,47 +23,35 @@
             ]
           },
           {
-            "group": "Customization",
+            "group": "Funding",
             "pages": [
-              "essentials/settings",
-              "essentials/navigation"
+              "funding/deposits",
+              "funding/withdrawals",
+              "funding/fees"
             ]
           },
           {
-            "group": "Writing content",
+            "group": "Trading",
             "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
+              "trading/buying-shares",
+              "trading/selling-shares",
+              "trading/pricing-and-inventory",
+              "trading/instant-confirmations"
             ]
           },
           {
-            "group": "AI tools",
+            "group": "Safety",
             "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "API reference",
-        "groups": [
-          {
-            "group": "API documentation",
-            "pages": [
-              "api-reference/introduction"
+              "safety/risks",
+              "safety/pricing-and-availability",
+              "safety/account-security"
             ]
           },
           {
-            "group": "Endpoint examples",
+            "group": "Support",
             "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              "support/faq",
+              "support/contact-support"
             ]
           }
         ]
@@ -72,13 +60,13 @@
     "global": {
       "anchors": [
         {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
+          "anchor": "PRVT Market",
+          "href": "https://prvtmarket.com",
           "icon": "book-open-cover"
         },
         {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
+          "anchor": "Support",
+          "href": "mailto:hello@prvtmarket.com",
           "icon": "newspaper"
         }
       ]
