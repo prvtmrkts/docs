@@ -23,6 +23,12 @@
             ]
           },
           {
+            "group": "Verification",
+            "pages": [
+              "verification/kyc"
+            ]
+          },
+          {
             "group": "Funding",
             "pages": [
               "funding/deposits",
