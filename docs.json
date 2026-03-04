@@ -32,6 +32,7 @@
             "group": "Funding",
             "pages": [
               "funding/deposits",
+              "funding/deposit/wallet-to-wallet",
               "funding/withdrawals",
               "funding/fees"
             ]
