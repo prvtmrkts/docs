@@ -42,6 +42,9 @@
             "pages": [
               "trading/buying-shares",
               "trading/selling-shares",
+              "trading/spv-investments",
+              "trading/btc-investments",
+              "trading/investment-lifecycle",
               "trading/pricing-and-inventory",
               "trading/instant-confirmations"
             ]
