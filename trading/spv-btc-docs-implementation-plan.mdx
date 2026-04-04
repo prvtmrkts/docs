@@ -1,0 +1,153 @@
+---
+title: "SPV/BTC docs implementation plan"
+description: "Implementation plan for documenting SPV and BTC investment flows in PRVT docs."
+sidebarTitle: "SPV/BTC docs plan"
+---
+
+## Scope
+
+Document user-facing SPV and BTC investment behavior that is already implemented in `prvt-waitlist`, then integrate it into the Mintlify docs structure in `prvt-docs/docs`.
+
+Default assumptions for execution:
+
+- Audience is end users (not internal admin operators).
+- SPV and BTC each get dedicated guide pages.
+- Technical implementation details are translated into product language, with no internal secrets or ops-only procedures.
+
+## Evidence baseline
+
+Primary implementation sources:
+
+- `prvt-waitlist/types/activity.ts`
+- `prvt-waitlist/app/api/activity/unified/route.ts`
+- `prvt-waitlist/app/api/spv/investments/route.ts`
+- `prvt-waitlist/app/api/btc/investments/route.ts`
+- `prvt-waitlist/app/api/spv/buy/route.ts`
+- `prvt-waitlist/app/api/btc/buy/route.ts`
+- `prvt-waitlist/app/api/cron/spv-redemptions/route.ts`
+- `prvt-waitlist/app/api/cron/btc-redemptions/route.ts`
+
+Current docs touchpoints to extend:
+
+- `prvt-docs/docs/docs.json`
+- `prvt-docs/docs/trading/buying-shares.mdx`
+- `prvt-docs/docs/trading/selling-shares.mdx`
+- `prvt-docs/docs/trading/instant-confirmations.mdx`
+- `prvt-docs/docs/funding/fees.mdx`
+- `prvt-docs/docs/safety/risks.mdx`
+- `prvt-docs/docs/support/faq.mdx`
+
+## Gap summary
+
+Missing from docs today:
+
+- SPV investment lifecycle (buy, locked, maturity/redeem, refund pathways)
+- BTC investment lifecycle (buy, lockup, maturity/redeem)
+- Fee model distinctions for SPV (upfront + platform) vs BTC (upfront)
+- Activity timeline event names/types for SPV/BTC investments
+- Lockup/unlock expectations and timing language
+
+## Implementation phases
+
+### Phase 1: Create core investment pages
+
+Create:
+
+- `prvt-docs/docs/trading/spv-investments.mdx`
+- `prvt-docs/docs/trading/btc-investments.mdx`
+
+Required content in both pages:
+
+- Overview and prerequisites
+- How investment amount is processed (gross amount, fees, net invested)
+- Status lifecycle in user terms
+- Redemption/maturity expectations
+- Where users see confirmations and timeline updates
+
+SPV-specific sections:
+
+- Upfront fee + platform fee behavior
+- Exit expectations in user-safe language
+
+BTC-specific sections:
+
+- Lockup/tenor behavior in user-safe language
+- Maturity payout framing
+
+### Phase 2: Add lifecycle reference page
+
+Create:
+
+- `prvt-docs/docs/trading/investment-lifecycle.mdx`
+
+Required content:
+
+- Shared glossary of statuses and meanings
+- Activity timeline mapping for: `spv_invest`, `spv_maturity`, `btc_invest`, `btc_maturity`
+- What users should do if a status appears delayed
+
+### Phase 3: Integrate with existing docs
+
+Update:
+
+- `prvt-docs/docs/trading/buying-shares.mdx`
+- `prvt-docs/docs/trading/selling-shares.mdx`
+- `prvt-docs/docs/trading/instant-confirmations.mdx`
+- `prvt-docs/docs/funding/fees.mdx`
+- `prvt-docs/docs/safety/risks.mdx`
+- `prvt-docs/docs/support/faq.mdx`
+
+Required outcomes:
+
+- Cross-links to new SPV/BTC pages
+- Fee language aligned with SPV/BTC behavior
+- Risk language for lockup/liquidity and payout uncertainty
+- FAQ coverage for common SPV/BTC user questions
+
+### Phase 4: Navigation and discoverability
+
+Update `prvt-docs/docs/docs.json` Trading group with:
+
+- `trading/spv-investments`
+- `trading/btc-investments`
+- `trading/investment-lifecycle`
+
+Suggested order:
+
+1. `trading/buying-shares`
+2. `trading/selling-shares`
+3. `trading/spv-investments`
+4. `trading/btc-investments`
+5. `trading/investment-lifecycle`
+6. Existing market microstructure pages
+
+### Phase 5: QA and release gate
+
+Validation checklist:
+
+- All new pages have frontmatter (`title`, `description`)
+- No contradictions with implementation behavior
+- All internal links resolve
+- Terminology is consistent across pages (`net invested`, `maturity payout`, `yield`)
+- Support escalation language is present where timing can vary
+
+Mintlify checks:
+
+- Run `mint dev`
+- Run `mint broken-links`
+
+## Acceptance criteria
+
+- Users can understand SPV and BTC investment lifecycle without reading source code.
+- Users can distinguish fees and timing expectations between SPV and BTC products.
+- Docs navigation exposes SPV/BTC pages under Trading.
+- FAQ and risk pages include SPV/BTC-specific guidance.
+
+## Execution order
+
+1. Draft `spv-investments.mdx`
+2. Draft `btc-investments.mdx`
+3. Draft `investment-lifecycle.mdx`
+4. Update cross-linked existing pages
+5. Update `docs.json`
+6. Run docs QA checks
