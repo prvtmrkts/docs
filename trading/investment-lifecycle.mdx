@@ -1,0 +1,97 @@
+---
+title: "Investment lifecycle"
+description: "Shared lifecycle reference for SPV and BTC investments on PRVT Market."
+---
+
+## Overview
+
+This page explains the common lifecycle states and activity timeline events for SPV and BTC investments.
+
+Use this guide to understand what each status means and what to expect next.
+
+## Lifecycle at a glance
+
+Most investments follow this pattern:
+
+1. You invest.
+2. Your position is locked.
+3. At maturity, redemption is processed.
+4. Your payout is posted and status updates to redeemed.
+
+In some cases, a refund flow may apply.
+
+## Status glossary
+
+### Locked
+
+Your investment is active and currently in its lock period or pending maturity processing.
+
+What this means for you:
+
+- Your funds are committed to the product.
+- You are waiting for maturity or a supported resolution path.
+
+### Redeemed
+
+Your maturity redemption has been processed.
+
+What this means for you:
+
+- Your payout has been calculated and posted.
+- Your investment lifecycle is complete for that position.
+
+### Refunded
+
+Your investment amount has been returned through a refund flow.
+
+What this means for you:
+
+- The original investment did not continue through normal maturity completion.
+- Your account history reflects the refund outcome.
+
+## Activity timeline event types
+
+Your activity timeline can include these SPV and BTC investment events:
+
+- `spv_invest`: recorded when an SPV investment is created.
+- `spv_maturity`: recorded when SPV maturity redemption completes.
+- `btc_invest`: recorded when a BTC investment is created.
+- `btc_maturity`: recorded when BTC maturity redemption completes.
+
+These events help you track the progression from initial investment to final payout.
+
+## Payout terminology
+
+When maturity is completed, payout may include:
+
+- Principal: your net invested base amount.
+- Yield: product yield when applicable.
+- Total payout: principal plus any applicable yield.
+
+Your account history may present these values as separate fields.
+
+## If a status seems delayed
+
+Status updates can take time depending on processing windows.
+
+If an update seems delayed:
+
+1. Confirm whether the expected maturity window has passed.
+2. Check your activity timeline for new investment or maturity events.
+3. Contact support if the status still has not changed.
+
+When contacting support, include:
+
+- Your account email
+- Product name
+- Investment amount
+- Approximate time of investment
+
+See [Contact support](/support/contact-support).
+
+## Related guides
+
+- [SPV investments](/trading/spv-investments)
+- [BTC investments](/trading/btc-investments)
+- [Fees](/funding/fees)
+- [Risks of private shares](/safety/risks)
